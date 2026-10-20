@@ -22,3 +22,6 @@ h1.verse-heading{font-size:23px;line-height:1.45;letter-spacing:-.45px;max-width
 
 /* SVG slices use a curved stroke for keyboard focus, never a rectangular tap outline. */
 .pie-svg,.pie-svg [data-pie-slice]{-webkit-tap-highlight-color:transparent}.pie-svg [data-pie-slice]:focus{outline:none}.pie-svg [data-pie-slice]:focus-visible{outline:none;stroke:var(--ink);stroke-width:3}
+
+/* Handle taps on the chart container; SVG paths never receive focus or touch highlighting. */
+.pie-svg [data-pie-slice]{pointer-events:none;outline:none!important}.pie-svg{touch-action:manipulation;outline:none!important}
