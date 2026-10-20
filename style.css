@@ -25,3 +25,6 @@ h1.verse-heading{font-size:23px;line-height:1.45;letter-spacing:-.45px;max-width
 
 /* Handle taps on the chart container; SVG paths never receive focus or touch highlighting. */
 .pie-svg [data-pie-slice]{pointer-events:none;outline:none!important}.pie-svg{touch-action:manipulation;outline:none!important}
+
+/* The chart's tap surface is completely invisible in every interaction state. */
+.pie-surface{position:relative;isolation:isolate}.pie-surface .pie-svg{pointer-events:none!important}.pie-tap-layer,.pie-tap-layer:hover,.pie-tap-layer:active,.pie-tap-layer:focus,.pie-tap-layer:focus-visible{position:absolute;inset:0;width:100%;height:100%;display:block;background:transparent!important;border:0!important;outline:0!important;box-shadow:none!important;filter:none!important;border-radius:0;padding:0;margin:0;color:transparent!important;-webkit-tap-highlight-color:transparent!important;appearance:none;-webkit-appearance:none;touch-action:manipulation}.pie-svg *{outline:none!important;box-shadow:none!important;filter:none!important;-webkit-tap-highlight-color:transparent!important}
