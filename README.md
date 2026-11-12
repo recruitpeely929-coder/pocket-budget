@@ -5,7 +5,7 @@ A mobile-friendly personal budget tracker. No subscription, server, API key, or 
 ## Publish free with GitHub Pages
 
 1. Create a public GitHub repository, e.g. `pocket-budget`.
-2. Upload everything inside the `website` folder to the repository root. Upload the files themselves, not the ZIP.
+2. Upload the app files in this repository to the repository root. Upload the files themselves, not the ZIP.
 3. In the repository open Settings → Pages.
 4. Under Build and deployment, choose Deploy from a branch, select `main`, folder `/ (root)`, and Save.
 5. GitHub will show your address, normally `https://YOUR-USERNAME.github.io/pocket-budget/`.
@@ -44,4 +44,13 @@ JSON backup contains all months, defaults, entries, transfers, and carryover rul
 
 ## Validation
 
-Core automated tests verify exact cents arithmetic, default totals, transfers, donor limits, Big spending isolation, carryover/reset, month closing, and backup integrity. DOM-stub smoke tests cover view and dialog rendering. Full device/browser visual QA was not available during creation.
+Core automated tests verify exact cents arithmetic, default totals, transfers, donor limits, Big spending isolation, carryover/reset, month closing, and backup integrity. DOM-stub smoke tests cover view and dialog rendering. Browser checks now cover entry, edit with a donor, repeat drafts, month review, downloaded-backup restore preview, restore, and recovery preview. Real Android device verification remains separate.
+
+## Reliability update
+See [MAINTENANCE.md](MAINTENANCE.md) for the complete user guide, calculations, recovery workflow and maintenance instructions. Settings includes links to the guide and full source ZIP.
+
+Monthly expenses can be edited in the active month. Automatic cover transfers are recalculated atomically; failed edits preserve original records. Repeat opens a draft in the latest active month. Month transitions show a review before confirmation.
+
+Backup reminders appear in-app after seven days. Restore previews dates and counts and saves one local recovery copy first. Yearly renewal reminders appear in-app for TBA, upcoming, due today and overdue periods. No push notification or automatic cloud sync is claimed.
+
+Run from the repository root: `for f in tests/*.cjs; do node "$f" || exit 1; done`. Tests require Node.js 22 or later and no third-party packages.
